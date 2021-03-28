@@ -45,7 +45,7 @@ const CreatePlan:React.FC = () =>  {
     new Date()
   );
   const [dispDate,setDispDate] = useState<string>((new Date().getFullYear()) + '年' + (new Date().getMonth()+1) + '月');
-  const [syunyu, setSyunyu] = useState<Array<string>>([...Array(2).fill('0')]);
+  const [syunyu, setSyunyu] = useState<Array<string>>(null);
   const [plan,setPlan] = useState<Array<string>>([...Array(15).fill('0')]);
   const [result,setResult] = useState<Array<string>>([...Array(15).fill('0')]);
   const [lastResult,setLastResult] = useState<Array<number>>([...Array(15).fill('0')]);
@@ -117,13 +117,13 @@ const CreatePlan:React.FC = () =>  {
                     <Grid item xs={12} sm={6}>
                         <FormControl>
                             <InputLabel htmlFor="component-simple">給与</InputLabel>
-                            <Input  id="component-simple" value={syunyu[0]} onChange={(e) =>KyuuyoChange(e,0)} endAdornment={<InputAdornment position="end">￥</InputAdornment>}/>
+                            <Input  id="component-simple" placeholder="0" value={syunyu[0]===null ? null : syunyu[0]} onChange={(e) =>KyuuyoChange(e,0)} endAdornment={<InputAdornment position="end">￥</InputAdornment>}/>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <FormControl>
                             <InputLabel htmlFor="component-simple">その他収入</InputLabel>
-                            <Input id="component-simple" value={syunyu[1]} onChange={(e) =>KyuuyoChange(e,1)} />
+                            <Input id="component-simple" placeholder="0" value={syunyu[1]===null ? null : syunyu[1]} onChange={(e) =>KyuuyoChange(e,1)} />
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={3}>
