@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Kakeibo from './kakeibo/container/main';
+import Kakeibo from './kakeibo/Component/main';
 
 function App() {
   return (

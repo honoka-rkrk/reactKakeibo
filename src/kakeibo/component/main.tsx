@@ -1,9 +1,9 @@
 import React from 'react';
-import CreatePlan from './createPlan/createPlan';
+import Kakeibo from '../Container/kakibo';
 
 const KakeiboMain:React.FC = () => {
     return(
-        <CreatePlan />
+        <Kakeibo />
     )
 }
 
