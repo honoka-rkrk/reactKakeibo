@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type DetailProps={
-    plan:Array<string>;
+    plan: Array<number>;
     result:Array<string>;
     lastResult:Array<number>;
     calcFlg:boolean
