@@ -14,23 +14,27 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type TotalProps = {
-  sumPlan: number | null;
+  sumDetailPlan:number,
+  sumResultPlan:number,
+  sumLastResultPlan: number
 }
 
 
 
-const CreatePlan:React.FC<TotalProps> = (props:TotalProps) =>  {
+const Total:React.FC<TotalProps> = (props:TotalProps) =>  {
   const styles = useStyles();
-  const {sumPlan} = props;
+  const {sumDetailPlan,sumResultPlan,sumLastResultPlan} = props;
+  console.log(sumResultPlan);
+  console.log(sumLastResultPlan);
 
   return (
     <>
         <Paper className={styles.planpaper}>項目名</Paper>
-        <Paper className={styles.planpaper}>{sumPlan === null ? '予算' : '予算： ' + sumPlan}</Paper>
-        <Paper className={styles.planpaper}>実績</Paper>
-        <Paper className={styles.planpaper}>＋ー</Paper> 
+        <Paper className={styles.planpaper}>{sumDetailPlan === null ? '予算' : '予算： ' + sumDetailPlan}</Paper>
+        <Paper className={styles.planpaper}>{sumResultPlan === null ? '実績' : '実績:  ' + sumResultPlan}</Paper>
+        <Paper className={styles.planpaper}>{sumLastResultPlan === null ? '＋ー' : '＋ー:  ' + sumLastResultPlan}</Paper> 
     </>
   );
 }
 
-export default CreatePlan;
+export default Total;

@@ -1,12 +1,13 @@
 import React,{useState,useRef,useContext,useEffect} from 'react';
 import CompDetail from '../../Component/CreatePlan/detail';
-import {KakeiboContext,setCalcSumFlg,setDetailPlan} from '../Provider/provider';
+import Kakeibo from '../../Component/kakeibo';
+import {KakeiboContext,setDetailPlan,setResultPlan} from '../Provider/provider';
 
 
 const Detail:React.FC = () => {
     const [plan,setPlan] = useState<Array<number>>([...Array(15)].fill(0));
-    const [result,setResult] = useState<Array<string>>([...Array(15).fill('0')]);
-    const [lastResult,setLastResult] = useState<Array<number>>([...Array(15).fill('0')]);
+    const [result,setResult] = useState<Array<number>>([...Array(15).fill(0)]);
+    const [lastResult,setLastResult] = useState<Array<number>>([...Array(15).fill(0)]);
     const calcFlgs = useRef<boolean>(false);
     const {kakeiboInfo,kakeiboDispatch} = useContext(KakeiboContext);
     
@@ -18,22 +19,28 @@ const Detail:React.FC = () => {
     };
     const ResultChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,type:number) => {
         let newValue=result.slice();
-        newValue[type] = event.target.value;
+        newValue[type] = Number(event.target.value);
         setResult(newValue);
     };
 
     useEffect(() => {
-        if(kakeiboInfo.calcSumFlg === true){
             kakeiboDispatch(setDetailPlan(plan));
-        }
-        kakeiboDispatch(setCalcSumFlg(false));
-    },[kakeiboInfo.calcSumFlg]);
+    },[plan]);
+
+    useEffect(() => {
+        kakeiboDispatch(setResultPlan(result));
+    },[result]);
+
+    // useEffect(() =>{
+    //     console.log(kakeiboInfo.lastResultPlan);
+    //     setLastResult(kakeiboInfo.lastresultPlan);
+    // },[kakeiboInfo.lastresultPlan])
 
     return(
         <CompDetail 
             plan={plan} 
             result={result} 
-            lastResult={lastResult}
+            lastResult={kakeiboInfo.lastResultPlan}
             calcFlg={calcFlgs.current}
             PlanChange={PlanChange}
             ResultChange={ResultChange}

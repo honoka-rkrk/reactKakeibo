@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Kakeibo from './kakeibo/Component/main';
+import KakeiboProvider from '../src/kakeibo/Container/Provider/provider';
 
-function App() {
+const App:React.FC = () => {
   return (
-    <div className="App">
+    <KakeiboProvider>
         <Kakeibo />
-    </div>
+    </KakeiboProvider>
   );
 }
 

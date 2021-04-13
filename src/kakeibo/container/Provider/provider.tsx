@@ -6,6 +6,8 @@ export type KakeiboState = {
     sumDetailPlan:number;
     resultPlan:Array<number>;
     sumResultPlan:number;
+    lastResultPlan:Array<number>;
+    sumLastResultPlan:number;
     calcSumFlg:boolean;
 }
 
@@ -14,6 +16,8 @@ const initialState:KakeiboState = {
     sumDetailPlan :0,
     resultPlan:[...Array(15)].fill(0),
     sumResultPlan:0,
+    lastResultPlan:[...Array(15)].fill(0),
+    sumLastResultPlan:0,
     calcSumFlg:false
 }
 
@@ -23,12 +27,14 @@ const kakeiboSlice = createSlice({
     initialState,
     reducers: {
         setDetailPlan: (state, action: PayloadAction<Array<number>>) => {
+            
             return{ 
           ...state,
           detailPlan: action.payload,
             }
         },
         setSumDetailPlan: (state, action: PayloadAction<number>) => {
+            console.log(action.payload);
             return{ 
           ...state,
           sumDetailPlan: action.payload,
@@ -41,9 +47,24 @@ const kakeiboSlice = createSlice({
             }
         },
         setSumResultPlan:(state,action:PayloadAction<number>) => { 
+            console.log(action.payload);
             return{
                 ...state,
                 sumResultPlan:action.payload
+            }
+        },
+        setLastResultPlan:(state,action:PayloadAction<Array<number>>) => {
+            console.log(action.payload);
+            return{
+                ...state,
+                lastResultPlan:action.payload
+            }
+        },
+        setSumLastResultPlan:(state,action:PayloadAction<number>) => { 
+            console.log(action.payload);
+            return{
+                ...state,
+                sumLastResultPlan:action.payload
             }
         },
         setCalcSumFlg:(state,action:PayloadAction<boolean>) => {
@@ -63,6 +84,8 @@ export const {
     setSumDetailPlan,
     setResultPlan,
     setSumResultPlan,
+    setLastResultPlan,
+    setSumLastResultPlan,
     setCalcSumFlg,
     setInitialState
 } = kakeiboSlice.actions;
