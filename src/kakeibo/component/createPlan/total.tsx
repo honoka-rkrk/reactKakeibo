@@ -24,8 +24,6 @@ type TotalProps = {
 const Total:React.FC<TotalProps> = (props:TotalProps) =>  {
   const styles = useStyles();
   const {sumDetailPlan,sumResultPlan,sumLastResultPlan} = props;
-  console.log(sumResultPlan);
-  console.log(sumLastResultPlan);
 
   return (
     <>

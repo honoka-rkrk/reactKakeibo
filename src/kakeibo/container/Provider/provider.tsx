@@ -2,6 +2,10 @@ import React,{createContext,useReducer} from 'react';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type KakeiboState = {
+    date:string,
+    userID:number,
+    mainIncome:number,
+    subIncome:number,
     detailPlan:Array<number>;
     sumDetailPlan:number;
     resultPlan:Array<number>;
@@ -12,6 +16,10 @@ export type KakeiboState = {
 }
 
 const initialState:KakeiboState = {
+    date:'',
+    userID:-1,
+    mainIncome:-1,
+    subIncome:-1,
     detailPlan :[...Array(15)].fill(0),
     sumDetailPlan :0,
     resultPlan:[...Array(15)].fill(0),
@@ -26,6 +34,13 @@ const kakeiboSlice = createSlice({
     name: 'kakeibo',
     initialState,
     reducers: {
+        setIncome: (state, action: PayloadAction<Array<number>>) => {
+            return{ 
+          ...state,
+          mainIncome: action.payload[0],
+          subIncome:action.payload[1]
+            }
+        },
         setDetailPlan: (state, action: PayloadAction<Array<number>>) => {
             
             return{ 
@@ -80,6 +95,7 @@ const kakeiboSlice = createSlice({
 })
 
 export const {
+    setIncome,
     setDetailPlan,
     setSumDetailPlan,
     setResultPlan,

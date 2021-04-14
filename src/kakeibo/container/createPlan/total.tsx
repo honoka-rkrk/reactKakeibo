@@ -1,18 +1,10 @@
-import React,{useState,useEffect,useCallback,useRef,useContext} from 'react';
+import React,{useContext} from 'react';
 import CompTotal from '../../Component/CreatePlan/total';
 import {KakeiboContext} from '../../Container/Provider/provider';
 
-type TotalProps = {
-  sumPlan: number | null;
-}
 
-const Total:React.FC<TotalProps> = (props:TotalProps) =>  {
-  const {sumPlan} = props;
+const Total:React.FC = () =>  {
   const {kakeiboInfo} =useContext(KakeiboContext);
-
-  useEffect(() => {
-    console.log(kakeiboInfo.resultPlan);
-  },[kakeiboInfo.resultPlan])
   
   return (
     <>

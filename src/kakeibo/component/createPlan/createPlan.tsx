@@ -35,22 +35,17 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-type CreatePlanProps = {
-  sumPlan: number | null;
-  setSumPlan: React.Dispatch<React.SetStateAction<number | null>>;
-}
 
-const CreatePlan:React.FC<CreatePlanProps> = (props:CreatePlanProps) =>  {
+const CreatePlan:React.FC = () =>  {
   const styles = useStyles();
-  const {sumPlan,setSumPlan} = props;
   
   return (
     <>
        <Box className={styles.titleCommon}>
-           <Title setSumPlan={setSumPlan}/>
+           <Title />
        </Box>
        <Box className={styles.total}>
-           <Total sumPlan={sumPlan} />
+           <Total/>
        </Box>
        <Box className={styles.detailCommon}>
            <Detail />

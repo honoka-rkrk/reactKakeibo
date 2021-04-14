@@ -12,8 +12,8 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import {Income} from '../../Container/CreatePlan/title'; 
 import Calc from '../../Container/Calc/calc';
+import Register from '../../Container/Register/register';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,16 +32,14 @@ type TitleProps = {
     maxDate:Date ;
     selectedDate: Date | null;
     handleDateChange: (date: Date | null) => void;
-    CalcClick: () => void;
-    syunyu: Income;
+    syunyu: Array<number>;
     KyuuyoChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, type: number) => void;
-    setSumPlan: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const Title:React.FC<TitleProps> = (props:TitleProps) =>  {
   const styles = useStyles();
   const {
-      dispDate,minDate,maxDate,selectedDate,handleDateChange,CalcClick,syunyu,KyuuyoChange,setSumPlan
+      dispDate,minDate,maxDate,selectedDate,handleDateChange,syunyu,KyuuyoChange
   }=props
 
   return (
@@ -64,15 +62,15 @@ const Title:React.FC<TitleProps> = (props:TitleProps) =>  {
                   }}
               />
         </MuiPickersUtilsProvider>
-              <Calc setSumPlan={setSumPlan} />
-              <Button variant="outlined" color="secondary">登録</Button>
+              <Calc />
+              <Register />
       <FormControl>
           <InputLabel htmlFor="component-simple">給与</InputLabel>
-          <Input id="component-simple" placeholder="0" value={syunyu === null ? null : syunyu.kyuuyo} onChange={(e) =>KyuuyoChange(e,0)} endAdornment={<InputAdornment position="end">￥</InputAdornment>}/>
+          <Input id="component-simple" placeholder="0" value={syunyu === null ? null : syunyu[0]} onChange={(e) =>KyuuyoChange(e,0)} endAdornment={<InputAdornment position="end">￥</InputAdornment>}/>
       </FormControl>
       <FormControl>
           <InputLabel htmlFor="component-simple">その他収入</InputLabel>
-          <Input id="component-simple" placeholder="0" value={syunyu ===null ? null : syunyu.subIncome} onChange={(e) =>KyuuyoChange(e,1)} />
+          <Input id="component-simple" placeholder="0" value={syunyu ===null ? null : syunyu[1]} onChange={(e) =>KyuuyoChange(e,1)} />
       </FormControl>
     </>
   );

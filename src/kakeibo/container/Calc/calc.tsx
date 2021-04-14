@@ -1,26 +1,24 @@
-import React ,{useCallback,useContext,useEffect}from 'react';
+import React ,{useCallback,useContext}from 'react';
 import CompCalc from '../../Component/Calc/calc';
-import {KakeiboContext,setSumDetailPlan,setCalcSumFlg, setSumResultPlan,setLastResultPlan,setSumLastResultPlan} from '../Provider/provider';
+import {KakeiboContext,setSumDetailPlan,setSumResultPlan,setLastResultPlan,setSumLastResultPlan} from '../Provider/provider';
 
-type CalcProps = {
-    setSumPlan: React.Dispatch<React.SetStateAction<number | null>>;
-}
 
-const Calc:React.FC<CalcProps> = (props:CalcProps) => {
-    const {setSumPlan} =  props;
+const Calc:React.FC = () => {
     const {kakeiboInfo,kakeiboDispatch} = useContext(KakeiboContext)
-    
 
+    //計算ボタンを押した時の処理
     const CalcClick = useCallback(() => {
+        //予算の合計を計算してstateに入れる
         const planArray = kakeiboInfo.detailPlan;
         let planTotal = planArray.reduce((prev,current)=>prev + current,0);
         kakeiboDispatch(setSumDetailPlan(planTotal));
 
+        //実績の合計を計算してstateに入れる
         const resultArray = kakeiboInfo.resultPlan;
         let resultTotal = resultArray.reduce((prev,current) =>prev + current,0);
         kakeiboDispatch(setSumResultPlan(resultTotal));
-        console.log(resultTotal);
 
+        //ボタンを押した時の予算ー実績をしてそれぞれの合計の差と項目ごとの差をstateに入れる
         const plan = planArray.slice();
         const result = resultArray.slice();
         let prevLastResult:Array<number> = Array(15);
@@ -30,10 +28,6 @@ const Calc:React.FC<CalcProps> = (props:CalcProps) => {
         kakeiboDispatch(setLastResultPlan(prevLastResult));
         kakeiboDispatch(setSumLastResultPlan(prevLastResult.reduce((prev,current) =>prev + current,0)));
     },[kakeiboInfo.detailPlan,kakeiboInfo.resultPlan])
-
-    useEffect(() => {
-        console.log(kakeiboInfo.resultPlan);
-    },[kakeiboInfo.resultPlan])
 
  return <CompCalc calcClick={CalcClick}/>
 }

@@ -1,7 +1,6 @@
 import React,{useState,useEffect,useCallback,useRef} from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 
@@ -55,7 +54,6 @@ type DetailProps={
 const Detail:React.FC<DetailProps> = (props:DetailProps) =>  {
   const styles = useStyles();
   const {plan,result,lastResult,calcFlg,PlanChange,ResultChange} = props;
-  console.log(lastResult);
 
   return (
     <>
