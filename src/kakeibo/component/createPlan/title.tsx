@@ -14,14 +14,23 @@ import {
 } from '@material-ui/pickers';
 import Calc from '../../Container/Calc/calc';
 import Register from '../../Container/Register/register';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     titlepaper: {
         padding: theme.spacing(2),
         textAlign: 'center',
-        color: theme.palette.text.secondary,
-        backgroundColor:theme.palette.warning.main
+        backgroundColor:theme.palette.dispDate.main,
+        position:'relative'
+      },
+      typographyCommon:{
+        position:'absolute',
+        textAlign:'center',
+        top:'50%',
+        left:'50%',
+        transform:'translate(-50%,-50%)',
+        color:theme.palette.dispDate.font
       }
   }),
 );
@@ -45,7 +54,11 @@ const Title:React.FC<TitleProps> = (props:TitleProps) =>  {
   return (
     <>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Paper className={styles.titlepaper}>{dispDate}</Paper>
+              <Paper className={styles.titlepaper}>
+                <Typography className={styles.typographyCommon}>
+                  {dispDate}
+                </Typography>
+              </Paper>
               <KeyboardDatePicker
                   margin="normal"
                   id="date-picker-dialog"

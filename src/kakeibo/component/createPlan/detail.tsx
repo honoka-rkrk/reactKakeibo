@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme: Theme) =>
     titlepaper: {
       padding: theme.spacing(2),
       textAlign: 'center',
-      color: theme.palette.text.secondary,
-      backgroundColor:theme.palette.warning.main
+      color: theme.palette.title.font,
+      backgroundColor:theme.palette.title.main
     },
     planpaper:{
         padding: theme.spacing(2),
       textAlign: 'center',
-      color: theme.palette.text.secondary,
-      backgroundColor:theme.palette.warning.light
+      color: theme.palette.detail.font,
+      backgroundColor:theme.palette.detail.main
     },
     inputstyle:{
         textAlign:'center'
