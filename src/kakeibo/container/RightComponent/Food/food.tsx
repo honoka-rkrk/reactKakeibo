@@ -16,9 +16,7 @@ const Food: React.FC = () => {
     ) => {
       setEditMemo((prev) => {
         const newValue = [...prev];
-        console.log(idx);
         newValue[idx] = event.target.value;
-        console.log(newValue);
         return newValue;
       });
     },

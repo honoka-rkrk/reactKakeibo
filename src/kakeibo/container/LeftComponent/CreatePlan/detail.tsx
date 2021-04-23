@@ -40,13 +40,11 @@ const Detail: React.FC = () => {
       const itemNameIdx = itemName.findIndex((meta) => meta.index === idx);
       _itemName = itemNameIdx >= 0 ? itemName[idx].name : null;
     }
-    console.log(_itemName);
     return _itemName;
   };
 
   const createParam = (idx: number): string => {
     const itemName = getItemName(idx);
-    console.log(itemName);
     const _name = itemName !== null ? itemName : '';
 
     return _name;

@@ -13,7 +13,6 @@ type FoodInputProps = {
 
 const FoodInput: React.FC<FoodInputProps> = (props: FoodInputProps) => {
   const { idx, value, editChange, column } = props;
-  console.log(idx);
 
   return (
     <CompFoodInput idx={idx} value={value} editChange={editChange} column={column} />

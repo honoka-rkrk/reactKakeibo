@@ -18,7 +18,7 @@ const FoodInput: React.FC<FoodInputProps> = (props: FoodInputProps) => {
     <Input
       key={`result_${column}_${idx}`}
       id={`result_${column}_${idx}`}
-      value={value[idx]}
+      value={value}
       onChange={(e) => editChange(e, idx)}
     />
   );
