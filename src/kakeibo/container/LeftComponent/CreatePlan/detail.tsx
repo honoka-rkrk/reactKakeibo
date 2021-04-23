@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext, useEffect } from 'react';
-import CompDetail from '../../Component/CreatePlan/detail';
+import CompDetail from '../../../Component/LeftComponent/CreatePlan/detail';
 import { KakeiboContext, setDetailPlan, setResultPlan } from '../Provider/provider';
+import { itemName } from '../../demo-data';
 
 const Detail: React.FC = () => {
   const [plan, setPlan] = useState<Array<number>>([...Array(15)].fill(0));
@@ -33,6 +34,24 @@ const Detail: React.FC = () => {
     kakeiboDispatch(setResultPlan(result));
   }, [result]);
 
+  const getItemName = (idx: number): string | null => {
+    let _itemName: string | null = null;
+    if (itemName !== null && itemName.length > 0) {
+      const itemNameIdx = itemName.findIndex((meta) => meta.index === idx);
+      _itemName = itemNameIdx >= 0 ? itemName[idx].name : null;
+    }
+    console.log(_itemName);
+    return _itemName;
+  };
+
+  const createParam = (idx: number): string => {
+    const itemName = getItemName(idx);
+    console.log(itemName);
+    const _name = itemName !== null ? itemName : '';
+
+    return _name;
+  };
+
   return (
     <CompDetail
       plan={plan}
@@ -41,6 +60,8 @@ const Detail: React.FC = () => {
       calcFlg={calcFlgs.current}
       PlanChange={PlanChange}
       ResultChange={ResultChange}
+      createParam={createParam}
+      itemLength={itemName.length}
     />
   );
 };

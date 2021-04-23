@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from 'react';
-import { db } from '../../../firebase';
+import { db } from '../../../../firebase';
 import { KakeiboContext } from '../Provider/provider';
-import CompRegister from '../../Component/Register/register';
+import CompRegister from '../../../Component/LeftComponent/Register/register';
 
 const Register: React.FC = () => {
   const { kakeiboInfo } = useContext(KakeiboContext);

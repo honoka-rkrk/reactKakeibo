@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import CompTitle from '../../Component/CreatePlan/title';
-import { db } from '../../../firebase';
-import { KakeiboContext, setIncome } from '../../Container/Provider/provider';
+import CompTitle from '../../../Component/LeftComponent/CreatePlan/title';
+import { db } from '../../../../firebase';
+import { KakeiboContext, setIncome } from '../Provider/provider';
 
 const Title: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());

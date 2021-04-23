@@ -9,8 +9,8 @@ import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import Calc from '../../Container/Calc/calc';
-import Register from '../../Container/Register/register';
+import Calc from '../../../Container/LeftComponent/Calc/calc';
+import Register from '../../../Container/LeftComponent/Register/register';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>

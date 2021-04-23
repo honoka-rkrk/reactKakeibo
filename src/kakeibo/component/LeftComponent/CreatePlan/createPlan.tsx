@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Title from '../../Container/CreatePlan/title';
-import Total from '../../Container/CreatePlan/total';
-import Detail from '../../Container/CreatePlan/detail';
+import Title from '../../../Container/LeftComponent/CreatePlan/title';
+import Total from '../../../Container/LeftComponent/CreatePlan/total';
+import Detail from '../../../Container/LeftComponent/CreatePlan/detail';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import CompCalc from '../../Component/Calc/calc';
+import CompCalc from '../../../Component/LeftComponent/Calc/calc';
 import {
   KakeiboContext,
   setSumDetailPlan,

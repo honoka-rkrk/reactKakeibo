@@ -5,12 +5,14 @@ declare module '@material-ui/core/styles/createPalette' {
     button?: CstmPaletteColorOptions;
     title?: CstmPaletteColorOptions;
     detail?: CstmPaletteColorOptions;
+    border?: CstmPaletteColorOptions;
   }
   interface Palette {
     dispDate: CstmPaletteColor;
     button: CstmPaletteColor;
     title: CstmPaletteColor;
     detail: CstmPaletteColor;
+    border: CstmPaletteColor;
   }
   interface CstmPaletteColorOptions {
     main: string;

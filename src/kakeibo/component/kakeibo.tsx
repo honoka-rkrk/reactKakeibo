@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import CreatePlan from '../Container/CreatePlan/createPlan';
+import CreatePlan from '../Container/LeftComponent/CreatePlan/createPlan';
+import WriteDetail from '../Container/RightComponent/writeDetail';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,9 +20,12 @@ const useStyles = makeStyles((theme: Theme) =>
       gridTemplateRows: '20% 10% 70%'
     },
     rightCommon: {
+      display: 'grid',
       gridColumn: '2',
       gridRow: '1',
-      padding: '6px'
+      padding: '6px',
+      gridTemplateColumns: '50% 50%',
+      gridTemplateRows: '25% 25% 25% 25%'
     }
   })
 );
@@ -35,7 +39,9 @@ const Kakeibo: React.FC = () => {
         <CreatePlan />
       </Box>
 
-      <Box className={styles.rightCommon}></Box>
+      <Box className={styles.rightCommon}>
+        <WriteDetail />
+      </Box>
     </div>
   );
 };
