@@ -3,10 +3,10 @@ import CompFood from '../../../Component/RightComponent/Food/food';
 
 const Food: React.FC = () => {
   const [editMemo, setEditMemo] = useState<Array<string>>(
-    Array<string>(20).fill('')
+    Array<string>(30).fill('')
   );
   const [editOutCome, setEditOutCome] = useState<Array<number>>(
-    Array<number>(20).fill(0)
+    Array<number>(30).fill(0)
   );
 
   const editMemoChange = useCallback(

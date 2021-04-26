@@ -37,12 +37,12 @@ type FoodMultiGridProps = {
 const FoodMultiGrid: React.FC<FoodMultiGridProps> = (props: FoodMultiGridProps) => {
   const styles = useStyles();
   const { editMemo, editOutCome, editMemoChange, editOutComeChange } = props;
-  const HEADER_ROW_COUNT = 1;
+  const HEADER_ROW_COUNT = 0;
   const ROW_HEIGHT = 30;
-  const MIN_ROW_COUNT = 10;
+  const MIN_ROW_COUNT = 22;
   const SCROLLBAR_SIZE = 17;
   const multigridref = React.createRef<MultiGrid>();
-  const itemCnt = 15;
+  const itemCnt = 30;
 
   useEffect(() => {
     multigridref.current?.forceUpdateGrids();
@@ -51,13 +51,13 @@ const FoodMultiGrid: React.FC<FoodMultiGridProps> = (props: FoodMultiGridProps) 
   const cols: Array<Cols> = [
     {
       name: 'メモ欄',
-      width: 300,
+      width: 170,
       style: `${styles.borderR} ${styles.borderB} ${styles.borderL}`
     },
     {
       name: '金額',
       width: 150,
-      style: `${styles.borderR} ${styles.borderB} ${styles.borderL}`
+      style: `${styles.borderR} ${styles.borderB}`
     }
   ];
 

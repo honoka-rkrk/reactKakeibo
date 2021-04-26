@@ -10,12 +10,13 @@ const useStyles = makeStyles((theme: Theme) =>
       gap: '4px',
       display: 'grid',
       gridTemplateColumns: '60% 40%',
-      gridTemplateRows: '100px calc(100% - 100px)',
+      gridTemplateRows: '50px 50px calc(100% - 100px)',
       justifyContent: 'center'
     },
     food: {
       gridColumn: '1',
-      gridRow: '1/4'
+      gridRow: '1/4',
+      backgroundColor: '#900'
     },
     daily: {
       gridColumn: '1',

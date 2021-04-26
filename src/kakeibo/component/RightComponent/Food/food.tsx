@@ -8,6 +8,45 @@ const useStyles = makeStyles((theme: Theme) =>
     titleCommon: {
       gridRow: '1',
       gridColumn: '1/3'
+    },
+    headerMemo: {
+      gridRow: '2',
+      gridColumn: '1',
+      textAlign: 'center',
+      padding: '6px'
+    },
+    headerOutCome: {
+      gridRow: '2',
+      gridColumn: '2',
+      textAlign: 'center',
+      padding: '4px'
+    },
+    allTableCommon: {
+      gridRow: '3',
+      gridColumn: '1/3',
+      display: 'grid',
+      gridTemplateRows: 'calc(100%/6)'
+    },
+    table1: {
+      gridRow: '1',
+      backgroundColor: '#fff'
+    },
+    calc1: {
+      gridRow: '2'
+    },
+    table2: {
+      gridRow: '3',
+      backgroundColor: '#fff'
+    },
+    calc2: {
+      gridRow: '4'
+    },
+    table3: {
+      gridRow: '5',
+      backgroundColor: '#fff'
+    },
+    calc3: {
+      gridRow: '6'
     }
   })
 );
@@ -32,12 +71,37 @@ const Food: React.FC<FoodProps> = (props: FoodProps) => {
   return (
     <>
       <Box className={styles.titleCommon}>食費</Box>
-      <FoodMultiGridProps
-        editMemo={editMemo}
-        editOutCome={editOutCome}
-        editMemoChange={editMemoChange}
-        editOutComeChange={editOutComeChange}
-      />
+      <Box className={styles.headerMemo}>メモ</Box>
+      <Box className={styles.headerOutCome}>金額</Box>
+      <Box className={styles.allTableCommon}>
+        <Box className={styles.table1}>
+          <FoodMultiGridProps
+            editMemo={editMemo}
+            editOutCome={editOutCome}
+            editMemoChange={editMemoChange}
+            editOutComeChange={editOutComeChange}
+          />
+        </Box>
+        <Box className={styles.calc1}>calc</Box>
+        <Box className={styles.table2}>
+          <FoodMultiGridProps
+            editMemo={editMemo}
+            editOutCome={editOutCome}
+            editMemoChange={editMemoChange}
+            editOutComeChange={editOutComeChange}
+          />
+        </Box>
+        <Box className={styles.calc2}>calc2</Box>
+        <Box className={styles.table3}>
+          <FoodMultiGridProps
+            editMemo={editMemo}
+            editOutCome={editOutCome}
+            editMemoChange={editMemoChange}
+            editOutComeChange={editOutComeChange}
+          />
+        </Box>
+        <Box className={styles.calc3}>calc3</Box>
+      </Box>
     </>
   );
 };

@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       font: '#fff'
     },
     border: {
-      main: '#333'
+      main: '#900'
     }
   },
   typography: {

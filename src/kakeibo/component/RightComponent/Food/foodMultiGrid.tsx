@@ -8,7 +8,7 @@ import FoodInput from '../../../Container/RightComponent/Food/foodInput';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     autoSizer: {
-      '&:Reactvirtualized__Grid': {
+      '& .Reactvirtualized__Grid': {
         outline: 'none',
         borderBottom: `1px solid ${theme.palette.border.main}`
       }
@@ -16,8 +16,16 @@ const useStyles = makeStyles((theme: Theme) =>
     borderT: {
       borderTop: `1px solid ${theme.palette.border.main}`
     },
+    borderR: {
+      borderRight: `1px solid ${theme.palette.border.main}`
+    },
+    borderB: {
+      borderBottom: `1px solid ${theme.palette.border.main}`
+    },
     flexCenter: {
-      textAlign: 'center'
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     flexRight: {
       textAlign: 'end'
@@ -26,7 +34,11 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'start'
     },
     headerCell: {
-      gridRow: '1'
+      gridRow: '1',
+      borderRight: `1px solid ${theme.palette.border.main}`
+    },
+    inpCell: {
+      padding: '0 0 0 2px'
     }
   })
 );
@@ -73,7 +85,7 @@ const FoodMultiGrid: React.FC<FoodMultiGridProps> = (props: FoodMultiGridProps) 
       style={prop.style}
       className={`${cols[prop.columnIndex].style} ${styles.borderT} ${
         styles.flexCenter
-      } ${styles.headerCell}`}
+      } ${styles.headerCell} ${styles.borderB}`}
     >
       {cols[prop.columnIndex].name}
     </Box>
@@ -85,7 +97,9 @@ const FoodMultiGrid: React.FC<FoodMultiGridProps> = (props: FoodMultiGridProps) 
         <Box
           key={prop.key}
           style={prop.style}
-          className={`${cols[prop.columnIndex].style} ${styles.flexLeft}`}
+          className={`${cols[prop.columnIndex].style} ${styles.flexLeft} ${
+            styles.borderB
+          }`}
         >
           <FoodInput
             idx={prop.rowIndex - headerRowCount}
@@ -110,7 +124,7 @@ const FoodMultiGrid: React.FC<FoodMultiGridProps> = (props: FoodMultiGridProps) 
             idx={prop.rowIndex - headerRowCount}
             value={
               editOutCome[prop.rowIndex - headerRowCount] !== 0
-                ? editOutCome[prop.rowIndex - headerRowCount].toString()
+                ? String(editOutCome[prop.rowIndex - headerRowCount])
                 : ''
             }
             editChange={editOutComeChange}
