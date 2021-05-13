@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
       minHeight: '100vh'
     },
     bodyroot: {
-      height: 'calc(100vh-120px)',
+      height: 'calc(100vh-50px)',
       width: '100%'
     }
   })

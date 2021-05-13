@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'grid',
+      gridTemplateColumns: '50% 50%',
       gridTemplateRows: '20% 10% 70%',
       padding: '2px',
       height: '100%'

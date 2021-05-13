@@ -6,7 +6,7 @@ import Header from '../Container/Header/header';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      height: '120px'
+      height: '50px'
     }
   })
 );
